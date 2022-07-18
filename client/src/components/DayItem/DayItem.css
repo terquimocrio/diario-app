@@ -1,0 +1,43 @@
+.days__item{
+  cursor: pointer;
+  display: inline-flex;
+  width: 30%;
+  height: 40px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  color: #1c2030;
+}
+
+.days__item--green{
+  background-color: #27ae60;
+}
+
+.days__item--yellow{
+  background-color: #f2c94c;
+}
+
+.days__item--orange{
+  background-color: #f2994a;
+}
+
+.days__item--red{
+  background-color: #eb5757;
+}
+
+.days__item__content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.days__item__date{
+  font-size: 16px;
+  font-weight: 700;
+  height: 100%;
+}
+
+.days__item__img{
+  margin-right: 20px;
+}

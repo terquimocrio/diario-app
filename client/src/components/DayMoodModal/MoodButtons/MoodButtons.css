@@ -1,0 +1,31 @@
+.modal__container__content__buttons {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.modal__container__content__buttons__button {
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.modal__container__content__buttons__button--green {
+  background-color: #27ae60;
+}
+.modal__container__content__buttons__button--yellow {
+  background-color: #f2c94c;
+}
+.modal__container__content__buttons__button--orange {
+  background-color: #f2994a;
+}
+.modal__container__content__buttons__button--red {
+  background-color: #eb5757;
+}
+

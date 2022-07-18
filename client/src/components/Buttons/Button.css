@@ -1,0 +1,7 @@
+.day-text__button{
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 10px;
+}
