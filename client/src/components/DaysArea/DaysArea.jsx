@@ -5,27 +5,9 @@ import DayItem from "../DayItem/DayItem";
 import "./DaysArea.css";
 import leftImg from "../../assets/img/left.png";
 import rightImg from "../../assets/img/right.png";
-import { useState, useEffect } from "react";
-import { dayServices } from "../../services/dayServices";
-const DaysArea = ({days, onDayClick, onMoodClick}) => {
-  /*const days = [
-    { mood: "green", date: "10/10/10", mood: "green" },
-    { mood: "green", date: "10/10/10", mood: "green" },
-    { mood: "yellow", date: "10/10/10", mood: "yellow" },
-    { mood: "green", date: "10/10/10", mood: "green" },
-    { mood: "orange", date: "10/10/10", mood: "orange" },
-    { mood: "red", date: "10/10/10", mood: "red" },
-    { mood: "red", date: "10/10/10", mood: "red" },
-    { mood: "red", date: "10/10/10", mood: "red" },
-    { mood: "red", date: "10/10/10", mood: "red" },
-    { mood: "red", date: "10/10/10", mood: "red" },
-    { mood: "red", date: "10/10/10", mood: "red" },
-    { mood: "red", date: "10/10/10", mood: "red" },
-    { mood: "red", date: "10/10/10", mood: "red" },
-    { mood: "red", date: "10/10/10", mood: "red" },
-    { mood: "red", date: "10/10/10", mood: "red" },
-  ];
-*/
+
+const DaysArea = ({days, onDayClick}) => {
+
 
 
 const leftImage = <img src={leftImg}></img>;

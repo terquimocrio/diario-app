@@ -6,14 +6,12 @@ import Logo from "./components/Logo/Logo";
 import "./index.css";
 import { dayServices } from "./services/dayServices";
 
-
-
 function App() {
   const [days, setDays] = useState([]);
   const [newDayModal, setNewDayModal] = useState(false);
   const [currentDay, setCurrentDay] = useState({
     _id: "",
-    formatDate: "",
+    formatDate: new Date().toLocaleDateString(),
     text: "",
     mood: "",
   });
@@ -60,7 +58,7 @@ function App() {
   const onMoodClick = (mood) => {
     setCurrentDay({
       _id: "",
-      formatDate: "",
+      formatDate: new Date().toLocaleDateString(),
       text: "",
       mood: mood,
     });
@@ -69,20 +67,40 @@ function App() {
 
   const onSaveDayClick = () => {
     //save the day in db
-    dayServices
-      .create(currentDay.text, currentDay.mood)
-      .then((res) => {
+
+    if (currentDay._id !== "") {
+      //edit day
+      alert("edit");
+      console.log("cd id", currentDay._id, "cd text", currentDay.text)
+      dayServices.update(currentDay._id, currentDay.text).then((res) => {
         setCurrentDay({
-          _id: res._id,
-          formatDate: res.formatDate,
-          text: res.text,
-          mood: res.mood,
+          _id: currentDay._id,
+          formatDate: currentDay.formatDate,
+          text: currentDay.text,
+          mood: currentDay.mood,
         });
         setRefreshDays(!refreshDays);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+    } else {
+      if (currentDay._id !== "") {
+        dayServices
+          .create(currentDay.text, currentDay.mood)
+          .then((res) => {
+            setCurrentDay({
+              _id: res._id,
+              formatDate: res.formatDate,
+              text: res.text,
+              mood: res.mood,
+            });
+            setRefreshDays(!refreshDays);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else {
+        alert("create a new day or select an existing day for editing");
+      }
+    }
   };
 
   const dayTextChangeHandler = (text) => {
@@ -101,11 +119,10 @@ function App() {
   };
 
   const onDeleteClick = () => {
-    
     if (currentDay._id !== "") {
-      var x = window.confirm("You are about to delete de selected day")
-      console.log("x", x)
-      if(!x) return;
+      var x = window.confirm("You are about to delete de selected day");
+      console.log("x", x);
+      if (!x) return;
       dayServices.deleteById(currentDay._id).then((res) => {
         alert("Day deleted");
         setDaySelected({
@@ -113,7 +130,7 @@ function App() {
           formatDate: "",
           text: "",
           mood: "",
-        })
+        });
         setRefreshDays(!refreshDays);
       });
     } else {
